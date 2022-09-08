@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+   .hehehe{
+     display: flex;
+     justify-content: space-evenly;
+   }
+   button {
+     margin: 40px 0 30px 350px;
+     width:100px;
+     height: 50px;
+
+   }
+   #demo{
+     margin-left: 350px;
+     font-size: 30px;
+   }
+  </style>
+</head>
+<body>
+<div class="hehehe">
+  <div><p>Amount</p>
+    <input type="text" id="s1">
+  </div>
+  <div><p>From currency</p>
+    <select id="s2">
+      <option value="vnd">VietNam</option>
+      <option value="usd">USA</option>
+    </select>
+  </div>
+  <div><p>To currentcy</p>
+    <select id="s3">
+      <option value="vnd">VietNam</option>
+      <option value="usd">USA</option>
+    </select>
+  </div>
+
+</div>
+  <button onclick="myFunction()" value="Quy doi">Quy doi</button>
+
+
+<p id="demo">Gia tri da quy doi se la :</p>
+
+<script>
+
+
+  function myFunction() {
+    let number=document.getElementById('s1').value;
+    let number2=document.getElementById('s2').value;
+    let number3=document.getElementById('s3').value;
+    let change;
+    if(isNaN(number)){
+      alert("value not a number")
+    }else {
+      if ((number2 == "vnd" && number3 == "usd")) {
+
+        change = number / 23000;
+        document.getElementById("demo").innerHTML = "Gia tri da quy doi se la : " + change + " $";
+      } else if (number2 == "usd" && number3 == "vnd") {
+        change = number * 23000;
+        document.getElementById("demo").innerHTML = "Gia tri da quy doi se la : " + change + ' vnd';
+
+      } else if (number2 == "vnd" && number3 == "vnd") {
+        change = number;
+        document.getElementById("demo").innerHTML = "Gia tri da quy doi se la : " + change + ' vnd';
+      } else {
+        document.getElementById("demo").innerHTML = "Gia tri da quy doi se la : " + change + " $";
+      }
+
+    }}
+</script>
+</body>
+</html>
